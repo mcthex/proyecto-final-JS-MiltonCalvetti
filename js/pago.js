@@ -1,14 +1,14 @@
 $(document).ready(function () {
-    //subtotal que viene del archivo carrito.js
+    //subtotal viene del archivo carrito.js
     $("#subtotal").text(calcularTotalCarrito());
-    //evento para que se modifique el html al cambiar el select sin que haya un error primero
+    //evento para modificar el html al cambiar el select evitando error
     $("#metodo-envio").on("change", calcularEnvio);
     $("#metodo-pago").on("change", validarPago);
-    //funcion para validar el form 
+    //validar el formulario
     validarFormulario();
 });
 
-//funcion para validar todos los campos del formulario antes de su envio
+//validar los campos del formulario
 function validarFormulario() {
     $("#form-carrito").submit(function (e) {
         if ($("#nombre").val() == "") {
@@ -56,15 +56,15 @@ function validarFormulario() {
         } else if ($("#metodo-envio").val() == "defecto") {
             e.preventDefault();
             $("#error-envio").fadeIn();
-            //como es un select inclui un change que depende de otra funcion y modifica el html
+            //como es un select se incluye un change que modifica el html
             $("#metodo-envio").on("change", calcularEnvio);
         } else if ($("#metodo-pago").val() == "defecto") {
             e.preventDefault();
             $("#error-pago").fadeIn();
-            //como es un select inclui un change que depende de otra funcion y modifica el html
+            //como es un select se incluye un change que depende de otra funcion y modifica el html
             $("#metodo-pago").on("change", validarPago);
         } else if ($("#metodo-pago").val() == "debito" || $("#metodo-pago").val() == "credito") {
-            //si el medio de pago es tarjeta se suman dos validaciones mas
+            //si el medio de pago es tarjeta se suman más validaciones
             e.preventDefault();
             if (($("#num-tarjeta").val() == "") || ($("#num-tarjeta").val().length != 16)) {
                 e.preventDefault();
@@ -79,10 +79,10 @@ function validarFormulario() {
                     $("#error-codseg").fadeOut();
                 });
             } else {
-                //este else es para cuando el usuario elige tarjeta
+                //usuario elige tarjeta
                 e.preventDefault();
 
-                //una vez que se validan los datos los guardo en un array
+                //al validarse los datos se guardan en este array
                 let datosCompra = [];
                 datosCompra.push($("#nombre").val());
                 datosCompra.push($("#email").val());
@@ -96,11 +96,11 @@ function validarFormulario() {
                 datosCompra.push($("#num-tarjeta").val());
                 datosCompra.push($("#cod-seguridad").val());
 
-                //convierto el array a formato JSON para poder subirlo a la API
+                //array a formato JSON para subirlo a la API
                 let datosCompraJSON = JSON.stringify(datosCompra);
                 enviarDatos(datosCompraJSON);
 
-                //muestro un alert para que el usuario vea que la compra fue exitosa
+                //alert de compra exitosa
                 Swal.fire({
                     icon: 'success',
                     title: '¡Muchas gracias por tu compra!',
@@ -108,19 +108,19 @@ function validarFormulario() {
                     confirmButtonColor: "#444444"
                 });
 
-                //vacio el carrito
+                //se vacia el carrito
                 vaciarCarrito();
 
-                //reseteo los campos de entrada
+                //reset imputs de entrada
                 $(".entrada-pago").val('');
                 $("#metodo-envio option[value='defecto']").attr("selected", true);
                 $("#metodo-pago option[value='defecto']").attr("selected", true);
             };
         } else {
-            //este else es para cuando el usuario elige efectivo
+            //usuario elige efectivo
             e.preventDefault();
 
-            //una vez que se validan los datos los guardo en un array
+            //al validarse los datos se guardan en este array
             let datosCompra = [];
             datosCompra.push($("#nombre").val());
             datosCompra.push($("#email").val());
@@ -132,11 +132,11 @@ function validarFormulario() {
             datosCompra.push($("#metodo-envio").val());
             datosCompra.push($("#metodo-pago").val());
 
-            //convierto el array a formato JSON para poder subirlo a la API
+            //array a formato JSON para subirlo a la API
             let datosCompraJSON = JSON.stringify(datosCompra);
             enviarDatos(datosCompraJSON);
 
-            //muestro un alert para que el usuario vea que la compra fue exitosa
+            //alert de compra exitosa
             Swal.fire({
                 icon: 'success',
                 title: '¡Muchas gracias por tu compra!',
@@ -144,10 +144,10 @@ function validarFormulario() {
                 confirmButtonColor: "#444444"
             });
 
-            //vacio el carrito
+            //se vacia el carrito
             vaciarCarrito();
 
-            //reseteo los campos de entrada
+            //reset imputs de entrada
             $(".entrada-pago").val('');
             $("#metodo-envio option[value='defecto']").attr("selected", true);
             $("#metodo-pago option[value='defecto']").attr("selected", true);
@@ -155,24 +155,24 @@ function validarFormulario() {
     });
 };
 
-//funcion que calcula el costo de envio en funcion de la opcion seleccionada por el usuario
+//calcular costo del envío
 function calcularEnvio() {
     let envio;
     let metodoEnvio = $("#metodo-envio").val();
     if (metodoEnvio == "caba") {
-        envio = 800;
+        envio = 500;
         $("#envio").text(envio);
         $("#total").text(calcularTotalCompra(envio));
         $("#error-envio").hide();
     };
     if (metodoEnvio == "gba") {
-        envio = 1100;
+        envio = 1180;
         $("#envio").text(envio);
         $("#total").text(calcularTotalCompra(envio));
         $("#error-envio").hide();
     };
     if (metodoEnvio == "interior") {
-        envio = 2500;
+        envio = 2300;
         $("#envio").text(envio);
         $("#total").text(calcularTotalCompra(envio));
         $("#error-envio").hide();
@@ -185,7 +185,7 @@ function calcularEnvio() {
     };
 };
 
-//funcion para calcular el total de la compra sumando el total del carrito y el envio
+//total de la compra más envío
 function calcularTotalCompra(envio) {
     let total = 0;
     for (const producto of carrito) {
@@ -194,7 +194,7 @@ function calcularTotalCompra(envio) {
     return total + envio;
 };
 
-//funcion para validar la opcion elegida como metodo de pago
+//validar metodo de pago
 function validarPago() {
     let metodoPago = $("#metodo-pago").val();
     if (metodoPago == "debito" || metodoPago == "credito") {
@@ -209,7 +209,7 @@ function validarPago() {
     };
 };
 
-//funcion que resetea todos los valores una vez finalizada la compra 
+//resetear valores tras finalizar compra 
 function vaciarCarrito() {
     $("#gastoTotal").text("Total: $0");
     $("#cantidad-compra").text("0");
@@ -218,7 +218,7 @@ function vaciarCarrito() {
     carrito = [];
 }
 
-//funcion para simular la subida de los datos a una API
+//simular la subida de los datos a una API
 function enviarDatos(datos) {
     const URLPOST = "https://jsonplaceholder.typicode.com/posts";
 
