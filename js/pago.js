@@ -103,8 +103,8 @@ function validarFormulario() {
                 //muestro un alert para que el usuario vea que la compra fue exitosa
                 Swal.fire({
                     icon: 'success',
-                    title: '¡Compra confirmada!',
-                    text: 'Vas a recibir un mail de confirmación con el detalle de la compra en tu casilla',
+                    title: '¡Muchas gracias por tu compra!',
+                    text: 'Pronto recibirás el detalle en tu E-Mail',
                     confirmButtonColor: "#444444"
                 });
 
@@ -139,8 +139,8 @@ function validarFormulario() {
             //muestro un alert para que el usuario vea que la compra fue exitosa
             Swal.fire({
                 icon: 'success',
-                title: '¡Compra confirmada!',
-                text: 'Vas a recibir un mail de confirmación con el detalle de la compra en tu casilla',
+                title: '¡Muchas gracias por tu compra!',
+                text: 'Pronto recibirás el detalle en tu E-Mail',
                 confirmButtonColor: "#444444"
             });
 
