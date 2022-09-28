@@ -263,7 +263,7 @@ footer .footer-content .footer-redes li i {
   align-items: center;
 }
 .section-contacto .form-contacto section {
-  background-color: rgba(215, 193, 215, 0.8352941176);
+  background-color: rgba(150, 233, 50, 0.8352941176);
   padding: 40px;
   border-radius: 10px;
   width: 90vh;
@@ -303,7 +303,7 @@ footer .footer-content .footer-redes li i {
   width: 100%;
 }
 .section-contacto .form-contacto section form .botones:hover {
-  color: rgba(215, 193, 215, 0.8352941176);
+  color: rgba(150, 233, 50, 0.8352941176);
 }
 
 /* === INFO === */
@@ -328,7 +328,7 @@ footer .footer-content .footer-redes li i {
   cursor: pointer;
   color: #000100;
   position: relative;
-  background-color: rgba(215, 193, 215, 0.8352941176);
+  background-color: rgba(150, 233, 50, 0.8352941176);
   margin: 0;
   padding: 15px 20px;
   font-size: 1.2rem;

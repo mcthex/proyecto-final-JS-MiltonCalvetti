@@ -3,62 +3,62 @@
         "tipo": "Repuestos",
         "nombre": "Caño de escape",
         "precio": 1170,
-        "foto": ""
+        "foto": "../media/escape.png"
     }, {
         "id": 2,
         "tipo": "Repuestos",
         "nombre": "faro delantero",
         "precio": 1430,
-        "foto": ""
+        "foto": "../media/farol_delantero.png"
     }, {
         "id": 3,
         "tipo": "Repuestos",
         "nombre": "Faro trasero",
         "precio": 1900,
-        "foto": ""
+        "foto": "../media/faroltrasero.png"
     }, {
         "id": 4,
         "tipo": "Accesorios",
         "nombre": "Antena tunning",
         "precio": 970,
-        "foto": ""
+        "foto": "../media/antena.png"
     }, {
         "id": 5,
         "tipo": "Accesorios",
         "nombre": "Espejo tunning",
         "precio": 1400,
-        "foto": ""
+        "foto": "../media/espejo.png"
     }, {
         "id": 6,
         "tipo": "Accesorios",
         "nombre": "Llantas 22",
         "precio": 25000,
-        "foto": ""
+        "foto": "../media/llantas.png"
     }, {
         "id": 7,
         "tipo": "Service",
         "nombre": "Aceite",
         "precio": 2200,
-        "foto": ""
+        "foto": "../media/aceite.png"
     }, {
         "id": 8,
         "tipo": "Service",
         "nombre": "Filtro",
         "precio": 800,
-        "foto": ""
+        "foto": "../media/filtro.png"
     },
     {
         "id": 9,
         "tipo": "Service",
         "nombre": "Silicona",
         "precio": 700,
-        "foto": ""
+        "foto": "../media/silicona.png"
     },
     {
         "id": 10,
         "tipo": "Service",
         "nombre": "Bujías",
         "precio": 750,
-        "foto": ""
+        "foto": "../media/bujias.png"
     }
 ]
